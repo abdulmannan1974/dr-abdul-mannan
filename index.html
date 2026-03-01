@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP53 Review | Dr Abdul Mannan</title>
+  <meta name="description" content="A polished landing page for Dr Abdul Mannan's narrative review on TP53 mutation and its impact on haematological malignancies.">
+  <meta name="theme-color" content="#8b1023">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wine: #8b1023;
+      --wine-deep: #4f0a17;
+      --ink: #17120f;
+      --muted: #685f59;
+      --paper: #f8f4ee;
+      --paper-strong: #fffaf5;
+      --gold: #d9b271;
+      --rose: rgba(139, 16, 35, 0.09);
+      --border: rgba(23, 18, 15, 0.08);
+      --shadow: 0 24px 70px rgba(54, 19, 15, 0.12);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --content-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(217, 178, 113, 0.18), transparent 35%),
+        radial-gradient(circle at left 20%, rgba(139, 16, 35, 0.08), transparent 30%),
+        linear-gradient(180deg, #fcfaf7 0%, #f5efe6 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--content-width));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(248, 244, 238, 0.76);
+      border-bottom: 1px solid rgba(23, 18, 15, 0.05);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 1.2rem;
+      background:
+        linear-gradient(135deg, #b71330 0%, #7f0d21 60%, #57101c 100%);
+      box-shadow: 0 14px 28px rgba(139, 16, 35, 0.28);
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--wine);
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 0.98rem;
+      line-height: 1.25;
+    }
+
+    .nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .nav a:hover {
+      background: rgba(139, 16, 35, 0.09);
+      color: var(--wine);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      position: relative;
+      padding: 56px 0 28px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-panel,
+    .glass-card,
+    .section-card,
+    .metric-card,
+    .quote-card,
+    .timeline-card,
+    .download-card,
+    .details-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 245, 0.94);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel {
+      padding: 36px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(217, 178, 113, 0.2), transparent 22%),
+        linear-gradient(140deg, rgba(139, 16, 35, 0.045), transparent 45%);
+      z-index: -1;
+      border-radius: inherit;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.08;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 5.25rem);
+      margin-top: 12px;
+      max-width: 10ch;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3.6vw, 3rem);
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    .hero-lead {
+      margin: 18px 0 0;
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .badge {
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 0.83rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: var(--wine);
+      background: rgba(139, 16, 35, 0.08);
+      border: 1px solid rgba(139, 16, 35, 0.09);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 0 18px;
+      border-radius: 18px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: linear-gradient(135deg, #9f1430 0%, #7c1124 55%, #551019 100%);
+      box-shadow: 0 16px 28px rgba(139, 16, 35, 0.24);
+    }
+
+    .button-secondary {
+      background: #fff;
+      color: var(--wine);
+      border: 1px solid rgba(139, 16, 35, 0.16);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .metric-card {
+      padding: 18px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(251, 245, 237, 0.96));
+    }
+
+    .metric-card span {
+      display: block;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    .metric-card strong {
+      display: block;
+      margin-top: 6px;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--wine-deep);
+    }
+
+    .glass-card {
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255, 250, 245, 0.95), rgba(252, 247, 241, 0.9));
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .publication-ribbon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--wine);
+      background: rgba(217, 178, 113, 0.18);
+      border: 1px solid rgba(217, 178, 113, 0.32);
+    }
+
+    .glass-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .signature {
+      padding: 18px;
+      border-radius: 20px;
+      background:
+        linear-gradient(145deg, rgba(139, 16, 35, 0.98), rgba(84, 13, 26, 0.96));
+      color: #fff;
+    }
+
+    .signature small {
+      display: block;
+      font-family: "IBM Plex Mono", monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.78;
+      font-size: 0.72rem;
+    }
+
+    .signature strong {
+      display: block;
+      font-size: 1.18rem;
+      line-height: 1.3;
+      margin-top: 8px;
+    }
+
+    .signature span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+    }
+
+    .hero-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-list li {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .hero-list li::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin-top: 0.45em;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--wine));
+      box-shadow: 0 0 0 4px rgba(139, 16, 35, 0.08);
+    }
+
+    main {
+      padding-bottom: 64px;
+    }
+
+    section {
+      padding: 28px 0;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      margin: 10px 0 0;
+      max-width: 64ch;
+      color: var(--muted);
+    }
+
+    .grid-3,
+    .grid-2,
+    .timeline,
+    .download-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-card,
+    .timeline-card,
+    .download-card,
+    .details-card {
+      padding: 24px;
+    }
+
+    .section-card p,
+    .timeline-card p,
+    .download-card p,
+    .details-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .tagline {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--wine);
+      background: rgba(139, 16, 35, 0.06);
+    }
+
+    .quote-card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(248, 244, 238, 0.96), rgba(255, 255, 255, 0.98));
+    }
+
+    .quote-card::after {
+      content: "“";
+      position: absolute;
+      top: -22px;
+      right: 20px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 7rem;
+      line-height: 1;
+      color: rgba(139, 16, 35, 0.08);
+    }
+
+    blockquote {
+      margin: 0;
+      font-size: clamp(1.15rem, 2vw, 1.6rem);
+      line-height: 1.45;
+      font-family: "Playfair Display", Georgia, serif;
+      max-width: 22ch;
+    }
+
+    .quote-card footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .timeline {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .timeline-card {
+      position: relative;
+      padding-left: 72px;
+      min-height: 180px;
+    }
+
+    .timeline-index {
+      position: absolute;
+      left: 22px;
+      top: 22px;
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, #b71330, #6a1020);
+      box-shadow: 0 12px 24px rgba(139, 16, 35, 0.2);
+    }
+
+    .timeline-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .timeline-card li + li {
+      margin-top: 8px;
+    }
+
+    .download-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: stretch;
+    }
+
+    .download-card strong {
+      display: block;
+      margin-top: 12px;
+      font-size: 1.05rem;
+    }
+
+    .download-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .details-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      border: 1px solid rgba(23, 18, 15, 0.06);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 14px 16px;
+    }
+
+    details[open] {
+      background: rgba(139, 16, 35, 0.03);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      color: var(--wine-deep);
+    }
+
+    details p {
+      margin: 10px 0 0;
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      padding: 26px 0 56px;
+      color: var(--muted);
+    }
+
+    .footer-shell {
+      border-top: 1px solid rgba(23, 18, 15, 0.08);
+      padding-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .footer a {
+      color: var(--wine);
+      font-weight: 700;
+    }
+
+    .fade-up {
+      animation: fadeUp 700ms ease both;
+    }
+
+    .fade-up.delay-1 { animation-delay: 80ms; }
+    .fade-up.delay-2 { animation-delay: 160ms; }
+    .fade-up.delay-3 { animation-delay: 240ms; }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .download-grid,
+      .grid-3,
+      .grid-2,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-card {
+        padding-left: 24px;
+      }
+
+      .timeline-index {
+        position: static;
+        margin-bottom: 14px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .hero-panel,
+      .glass-card,
+      .section-card,
+      .quote-card,
+      .timeline-card,
+      .download-card,
+      .details-card {
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .brand-copy strong {
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-mark" aria-hidden="true">🩸</span>
+        <span class="brand-copy">
+          <span class="eyebrow">Blood Doctor Review</span>
+          <strong>Dr Abdul Mannan FRCPath FCPS | Blood🩸Doctor</strong>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#review">Review</a>
+        <a href="#insights">Key Insights</a>
+        <a href="#downloads">Downloads</a>
+        <a href="mailto:blooddoctor.co@gmail.com">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="shell hero-grid">
+        <article class="hero-panel fade-up">
+          <span class="eyebrow">Narrative Review Landing Page</span>
+          <h1>TP53 mutation across modern haematology.</h1>
+          <p class="hero-lead">
+            A clinician-led academic landing page for the expanded review on TP53 mutation and its impact on haematological malignancies, authored and branded for Dr Abdul Mannan. Built as a clean publication front-end with direct access to the manuscript assets.
+          </p>
+
+          <div class="hero-badges">
+            <span class="badge">Myeloid-first evidence</span>
+            <span class="badge">Lymphoid risk synthesis</span>
+            <span class="badge">Submission-ready manuscript</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#review">Explore the review</a>
+            <a class="button button-secondary" href="TP53_Mutation_Submission_Style_Review.docx">Download .docx</a>
+            <a class="button button-secondary" href="mailto:blooddoctor.co@gmail.com">blooddoctor.co@gmail.com</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="metric-card">
+              <span>Primary focus</span>
+              <strong>TP53 biology</strong>
+            </div>
+            <div class="metric-card">
+              <span>Clinical frame</span>
+              <strong>Classification + prognosis</strong>
+            </div>
+            <div class="metric-card">
+              <span>Output</span>
+              <strong>HTML + DOCX</strong>
+            </div>
+          </div>
+        </article>
+
+        <aside class="glass-card fade-up delay-1">
+          <div class="publication-ribbon">Academic profile page</div>
+          <div class="signature">
+            <small>Author branding</small>
+            <strong>Dr Abdul Mannan FRCPath FCPS</strong>
+            <span>Blood🩸Doctor</span>
+            <span><a href="mailto:blooddoctor.co@gmail.com" style="color: #fff;">blooddoctor.co@gmail.com</a></span>
+          </div>
+          <p>
+            This landing page is designed as a polished front door for sharing the TP53 review on GitHub Pages or Netlify. It distils the manuscript into a strong, readable presentation while keeping the full files available for download.
+          </p>
+          <ul class="hero-list">
+            <li>Highlights TP53 as a classifier in MDS, MDS/AML, and AML.</li>
+            <li>Frames TP53 as a high-risk evolution marker in CLL, MCL, DLBCL, T-PLL, and myeloma.</li>
+            <li>Positions the review as a clinician-facing academic resource, not a generic blog post.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="review">
+      <div class="shell">
+        <div class="section-header fade-up">
+          <div>
+            <span class="tagline">Review framing</span>
+            <h2>What this page is built to communicate</h2>
+            <p>
+              The manuscript argues that TP53 is not just another recurrent mutation. In myeloid disease it can define the disease itself; in lymphoid and plasma cell neoplasms it consistently signals aggressive biology, transformation pressure, and reduced durability of standard treatment.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="section-card fade-up delay-1">
+            <span class="tagline">Diagnostic force</span>
+            <h3>Myeloid classification override</h3>
+            <p>
+              TP53 status now directly shapes disease taxonomy in the MDS to AML continuum. The review emphasises that multi-hit TP53 can be disease-defining in lower-blast settings, while even single-hit TP53 retains major weight once blasts enter MDS/AML or AML territory.
+            </p>
+          </article>
+
+          <article class="section-card fade-up delay-2">
+            <span class="tagline">Clinical meaning</span>
+            <h3>Genomic instability with consequence</h3>
+            <p>
+              Complex karyotype, 17p loss, copy-number imbalance, and clonal escape are presented as part of the same biological story. TP53 is interpreted as a disease-state marker tied to resistant, genomically unstable clones.
+            </p>
+          </article>
+
+          <article class="section-card fade-up delay-3">
+            <span class="tagline">Therapeutic signal</span>
+            <h3>Why the treatment pathway changes</h3>
+            <p>
+              Standard therapy often underperforms in TP53-disrupted disease. The manuscript therefore pushes the reader toward trial-first thinking in myeloid disease, targeted rather than chemoimmunotherapy-led logic in CLL, and more guarded expectations in MCL and myeloma.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="quote-card fade-up">
+          <blockquote>
+            “TP53 should be treated as a contextual disease-state marker rather than a generic mutation result.”
+          </blockquote>
+          <footer>From the expanded narrative review prepared for Dr Abdul Mannan</footer>
+        </div>
+      </div>
+    </section>
+
+    <section id="insights">
+      <div class="shell">
+        <div class="section-header fade-up">
+          <div>
+            <span class="tagline">Disease map</span>
+            <h2>Key clinical insights at a glance</h2>
+            <p>
+              The landing page condenses the manuscript into four clinical lanes so a reader can understand where TP53 is defining disease, where it mainly modifies risk, and where it changes treatment expectations.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-card fade-up delay-1">
+            <span class="timeline-index">01</span>
+            <span class="tagline">CCUS / MDS</span>
+            <h3>TP53 can move the diagnosis</h3>
+            <ul>
+              <li>Multi-hit TP53 at meaningful VAF can shift interpretation from borderline clonal disease into overt myeloid neoplasia.</li>
+              <li>MDS with mutated TP53 is positioned as a biologically coherent, poor-risk entity.</li>
+              <li>Blast count alone no longer explains the severity of the phenotype.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-card fade-up delay-2">
+            <span class="timeline-index">02</span>
+            <span class="tagline">MDS/AML / AML</span>
+            <h3>TP53 compresses the blast boundary</h3>
+            <ul>
+              <li>The review frames TP53-mutated MDS/AML and AML as part of a shared adverse biology.</li>
+              <li>Resistance persists across intensive and lower-intensity treatment pathways.</li>
+              <li>Clinical-trial access and transplant planning become central, not optional.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-card fade-up delay-3">
+            <span class="timeline-index">03</span>
+            <span class="tagline">CLL / MCL / Richter</span>
+            <h3>TP53 marks escape and aggressive evolution</h3>
+            <ul>
+              <li>In CLL, TP53 is a high-risk treatment-selection marker and a warning sign for resistant evolution.</li>
+              <li>In Richter transformation, TP53 aligns with clonal escape and high-grade biology.</li>
+              <li>In MCL, TP53 should lower confidence in conventional intensification strategies.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-card fade-up delay-3">
+            <span class="timeline-index">04</span>
+            <span class="tagline">Myeloma / Predisposition</span>
+            <h3>TP53 also matters when it is not defining</h3>
+            <ul>
+              <li>In multiple myeloma, TP53 is presented as a marker of advanced-risk clonal evolution.</li>
+              <li>In germline contexts, TP53 changes donor evaluation, counselling, and surveillance.</li>
+              <li>The same mutation can mean different things depending on lineage and context.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="grid-2">
+          <article class="section-card fade-up">
+            <span class="tagline">Publication design</span>
+            <h2>Built as an academic-facing landing page</h2>
+            <p>
+              This is intentionally not a generic product template. The visual direction uses warm paper tones, deep haematology reds, editorial typography, and card-based sectioning so the page feels closer to a premium author profile than a default portfolio page.
+            </p>
+            <p>
+              It is suitable as a GitHub-hosted static site, a Netlify deploy, or the front page of a clinician education microsite.
+            </p>
+          </article>
+
+          <article class="details-card fade-up delay-1">
+            <span class="tagline">Reader pathways</span>
+            <div class="details-list">
+              <details open>
+                <summary>For haematologists</summary>
+                <p>The page surfaces the clinically relevant framing first: classification impact, adverse biology, and how TP53 alters treatment logic.</p>
+              </details>
+              <details>
+                <summary>For trainees and students</summary>
+                <p>The page offers a clearer narrative bridge between diagnostic classification and real-world prognostic interpretation.</p>
+              </details>
+              <details>
+                <summary>For collaborators or journals</summary>
+                <p>The page gives immediate access to the downloadable manuscript and a concise executive summary before opening the full paper.</p>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="shell">
+        <div class="section-header fade-up">
+          <div>
+            <span class="tagline">Assets</span>
+            <h2>Download the manuscript files</h2>
+            <p>
+              The landing page can ship with the full academic manuscript as both markdown and Word, making it usable as a public-facing summary plus a direct document hand-off.
+            </p>
+          </div>
+        </div>
+
+        <div class="download-grid">
+          <article class="download-card fade-up delay-1">
+            <span class="tagline">Primary files</span>
+            <h3>Submission-ready review package</h3>
+            <p>
+              The current build includes the expanded academic manuscript, the polished `.docx`, and the source markdown used to generate the page content.
+            </p>
+            <div class="download-actions">
+              <a class="button button-primary" href="TP53_Mutation_Submission_Style_Review.docx">Download .docx</a>
+              <a class="button button-secondary" href="TP53_Mutation_Submission_Style_Review.md">Download .md</a>
+            </div>
+            <strong>Best for: sharing with colleagues, email attachment, journal pre-submission review.</strong>
+          </article>
+
+          <article class="download-card fade-up delay-2">
+            <span class="tagline">Direct contact</span>
+            <h3>Work with Dr Abdul Mannan</h3>
+            <p>
+              For academic collaboration, clinical education, manuscript refinement, or digital haematology resources, contact the author directly.
+            </p>
+            <div class="download-actions">
+              <a class="button button-secondary" href="mailto:blooddoctor.co@gmail.com">Email now</a>
+            </div>
+            <strong>blooddoctor.co@gmail.com</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-shell">
+      <div>
+        <strong>Dr Abdul Mannan FRCPath FCPS | Blood🩸Doctor</strong><br>
+        <span>Static HTML landing page prepared for GitHub and Netlify deployment.</span>
+      </div>
+      <div>
+        <a href="mailto:blooddoctor.co@gmail.com">blooddoctor.co@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
